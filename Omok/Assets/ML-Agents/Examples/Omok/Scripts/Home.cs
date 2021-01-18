@@ -9,7 +9,7 @@ public class Home : MonoBehaviour
 
     public Vector3 MousePos;
 
-    public OmokAgent agentA, agentB;
+    //public OmokAgent agentA, agentB;
 
     public GameObject marker;
 
@@ -22,8 +22,8 @@ public class Home : MonoBehaviour
 
     void Start()
     {
-        agentA = GameObject.Find("OmokAgentA").GetComponent<OmokAgent>();
-        agentB = GameObject.Find("OmokAgentB").GetComponent<OmokAgent>();
+        //agentA = GameObject.Find("OmokAgentA").GetComponent<OmokAgent>();
+        //agentB = GameObject.Find("OmokAgentB").GetComponent<OmokAgent>();
         cam = Camera.main;
         TURN = true;
     }
@@ -90,14 +90,14 @@ public class Home : MonoBehaviour
             if (TURN)
             {
                 Debug.Log("A Win!");
-                agentA.SetWinReward();
-                agentB.SetLoseReward();
+                //agentA.SetWinReward();
+                //agentB.SetLoseReward();
             }
             else
             {
                 Debug.Log("B Win!");
-                agentA.SetLoseReward();
-                agentB.SetWinReward();
+                //agentA.SetLoseReward();
+                //agentB.SetWinReward();
             }
             
         }
