@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ML-Agents/Examples/SmallOmok/SmallOmok.unity
+    guid: 7d1d9c154e73feb42b65d135a2c6925a
   m_configObjects: {}
