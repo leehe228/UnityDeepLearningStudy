@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using UnityEngine.UI;
 
 public class SmallOmokAgent : Agent {
 
@@ -12,6 +13,8 @@ public class SmallOmokAgent : Agent {
     private SmallOmokAcademy academy;
 
     List<GameObject> stoneList;
+
+    public Text scoreBoard;
 
     public bool TURN;
     int lastTemp;
@@ -27,6 +30,8 @@ public class SmallOmokAgent : Agent {
 
         count = 0;
         lastTemp = 0;
+
+        scoreBoard.text = "START!\n";
     }
 
     public override void CollectObservations()
@@ -64,8 +69,10 @@ public class SmallOmokAgent : Agent {
 
                 if (FinishCheck(xIndex, zIndex) == 1)
                 {
-                    Debug.Log(Stone.tag + " Win!");
-                    SetReward(1f);
+                    scoreBoard.text += Stone.tag + " WIN!\n";
+                    //Debug.Log(Stone.tag + " Win!");
+                    SetReward(5f);
+                    Opponent.SetReward(-1f);
                     Done();
                     AgentReset();
                 }
@@ -74,14 +81,14 @@ public class SmallOmokAgent : Agent {
                     //Debug.Log(Stone.tag + " : (" + xIndex + ", " + zIndex + ")");
                     float BonusScore = BlockCheck(xIndex, zIndex);
                     SetReward(BonusScore);
-                    Opponent.SetReward(-BonusScore);
+                    // Opponent.SetReward(-BonusScore);
                     TURN = false;
                     Opponent.TURN = true;
                 }
             }
             else
             {
-                SetReward(-0.1f);
+                SetReward(-0.05f);
             }
         }
     }
@@ -101,7 +108,6 @@ public class SmallOmokAgent : Agent {
         {
             Destroy(o);
         }
-        Debug.Log("Destroied");
         /*GameObject[] temp = GameObject.FindGameObjectsWithTag(Stone.tag);
         for(int i = 0; i < temp.Length; i++)
         {
@@ -119,17 +125,7 @@ public class SmallOmokAgent : Agent {
     {
         int x, z;
         int count;
-        int OPPO_STONE;
         float SCORE = 0f;
-
-        if (Stone.CompareTag("BlackStone"))
-        {
-            OPPO_STONE = -1;
-        }
-        else
-        {
-            OPPO_STONE = 1;
-        }
 
         x = xIndex;
         z = zIndex;
@@ -137,7 +133,7 @@ public class SmallOmokAgent : Agent {
         // 가로
         for (int i = Mathf.Max(0, x - 4); i < Mathf.Min(11, x + 5); i++)
         {
-            if (academy.mapTable[i, z] == OPPO_STONE)
+            if (academy.mapTable[i, z] != 0)
             {
                 count++;
             }
@@ -150,7 +146,7 @@ public class SmallOmokAgent : Agent {
         // 세로
         for (int j = Mathf.Max(0, z - 4); j < Mathf.Min(11, z + 5); j++)
         {
-            if (academy.mapTable[x, j] == OPPO_STONE)
+            if (academy.mapTable[x, j] != 0)
             {
                 count++;
             }
@@ -163,7 +159,7 @@ public class SmallOmokAgent : Agent {
         // 정대각
         for (int i = Mathf.Max(0, x - 4), j = Mathf.Max(0, z - 4); (i < Mathf.Min(11, x + 5) && j < Mathf.Min(11, z + 5)); i++, j++)
         {
-            if (academy.mapTable[i, j] == OPPO_STONE)
+            if (academy.mapTable[i, j] != 0)
             {
                 count++;
             }
@@ -176,7 +172,7 @@ public class SmallOmokAgent : Agent {
         // 반대각
         for (int i = Mathf.Max(0, x - 4), j = Mathf.Min(10, z + 4); (i < Mathf.Min(11, x + 5) && j > Mathf.Max(-1, z - 5)); i++, j--)
         {
-            if (academy.mapTable[i, j] == OPPO_STONE)
+            if (academy.mapTable[i, j] != 0)
             {
                 count++;
             }

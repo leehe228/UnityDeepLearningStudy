@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using UnityEngine.UI;
 
 public class SmallOmokAcademy : Academy {
 
     public SmallOmokAgent AgentA;
     public SmallOmokAgent AgentB;
+
+    public Text scoreBoard;
 
     public int[,] mapTable = new int[11, 11];
 

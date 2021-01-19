@@ -18,6 +18,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/ML-Agents/Examples/SmallOmok/SmallOmok.unity:
     - Class: 1
@@ -55,6 +56,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11256}
     - Class: 114
+      Script: {instanceID: 11452}
+    - Class: 114
       Script: {instanceID: 11496}
     - Class: 114
       Script: {instanceID: 11812}
@@ -75,6 +78,8 @@ ScriptsOnlyBuild:
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -393,7 +398,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 2cec6b5459c085ac8fe30f571d7a8bc1
+      Hash: 15338f9c5847a6ea08c720ee24981c0a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SmallOmokAgent
@@ -543,7 +548,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: da37b690312fcb56aaa89588b01ec364
+      Hash: 912801e7cc1fae10ed8d8b9cf1a8bf2a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SmallOmokAcademy
