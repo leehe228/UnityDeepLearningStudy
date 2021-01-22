@@ -81,7 +81,7 @@ public class SmallOmokAgent : Agent {
                     //Debug.Log(Stone.tag + " : (" + xIndex + ", " + zIndex + ")");
                     float BonusScore = BlockCheck(xIndex, zIndex);
                     SetReward(BonusScore);
-                    // Opponent.SetReward(-BonusScore);
+                    Opponent.SetReward(BonusScore * -0.5f);
                     TURN = false;
                     Opponent.TURN = true;
                 }

@@ -420,7 +420,7 @@ MonoBehaviour:
     agentRenderTextures: []
     maxStep: 2000
     resetOnDone: 1
-    onDemandDecision: 1
+    onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   Opponent: {fileID: 2065449833}
   Stone: {fileID: 1471477175069930033, guid: b7fd739055381b740b8798afedef3138, type: 3}
@@ -737,8 +737,10 @@ MonoBehaviour:
   broadcastHub:
     broadcastingBrains:
     - {fileID: 11400000, guid: 9158a49c130d1e74188822deaef711c1, type: 2}
+    - {fileID: 11400000, guid: fce4847420d207e41af2161634558d65, type: 2}
     _brainsToControl:
     - {fileID: 11400000, guid: 9158a49c130d1e74188822deaef711c1, type: 2}
+    - {fileID: 11400000, guid: fce4847420d207e41af2161634558d65, type: 2}
   maxSteps: 5000
   trainingConfiguration:
     width: 80
@@ -985,14 +987,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed5ad25bd50478439b44ab916249f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 9158a49c130d1e74188822deaef711c1, type: 2}
+  brain: {fileID: 11400000, guid: fce4847420d207e41af2161634558d65, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 2099941251}
     agentRenderTextures: []
     maxStep: 2000
     resetOnDone: 1
-    onDemandDecision: 1
+    onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   Opponent: {fileID: 652690518}
   Stone: {fileID: 6735059287423217619, guid: 3d453cf568c3eaf49ab7162dc0afac5e, type: 3}

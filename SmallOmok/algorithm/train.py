@@ -23,7 +23,7 @@ learning_rate = 0.00025 # Learning Rate
 
 run_episode = 5000 # Training Episode
 test_episode = 1000 # Testing Episode
-start_train_episode = 10 # Train to get Replay Memory before Real Training
+start_train_episode = 3 # Train to get Replay Memory before Real Training
 
 target_update_step = 1000 # Updating Target Network Interval
 print_interval = 1 # Printing Interval
@@ -72,7 +72,7 @@ class Model():
         self.target_Q = tf.placeholder(shape=[None, action_size], dtype=tf.float32)
 
         # Calculate Loss Function Value and Train Network
-        self.loss = tf.losses.huber_loss(self.target_Q, self.Q_Out)
+        self.loss = tf.losses.mean_squared_error(self.target_Q, self.Q_Out)
         self.UpdateModel = tf.train.AdamOptimizer(learning_rate).minimize(self.loss)
         self.trainable_var = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, model_name)
 
@@ -107,13 +107,12 @@ class DQNAgent():
             # Exploration
             random_action1 = np.random.randint(0, action_size)
             random_action2 = np.random.randint(0, action_size)
-
             return random_action1, random_action2
+
         else:
             # Exploitation
             predict1 = self.sess.run(self.model1.predict, feed_dict={self.model1.input: state1})
             predict2 = self.sess.run(self.model2.predict, feed_dict={self.model2.input: state2})
-
             return np.asscalar(predict1), np.asscalar(predict2)
     
     # Add Data to Replay Memory
@@ -200,8 +199,11 @@ if __name__ == "__main__":
     env = UnityEnvironment(file_name=env_name)
 
     # Unity Brains
-    brain_name = env.brain_names[0]
-    brain = env.brains[brain_name]
+    brain_name1 = env.brain_names[0]
+    brain_name2 = env.brain_names[1]
+
+    brain1 = env.brains[brain_name1]
+    brain2 = env.brains[brain_name2]
 
     env_info = env.reset(train_mode=train_mode)
 
@@ -226,11 +228,11 @@ if __name__ == "__main__":
         done = False
 
         # Reset State, Episode Rewards, Done of Agents
-        state1 = np.uint8(255 * np.array(env_info[brain_name].visual_observations[0]))
+        state1 = 255 * np.array(env_info[brain_name1].visual_observations)
         episode_rewards1 = 0
         done1 = False
 
-        state2 = np.uint8(255 * np.array(env_info[brain_name].visual_observations[0]))
+        state2 = 255 * np.array(env_info[brain_name2].visual_observations)
         episode_rewards2 = 0
         done2 = False
 
@@ -240,19 +242,19 @@ if __name__ == "__main__":
 
             # Decide Action and Apply on Unity Env
             action1, action2 = agent.get_action(state1, state2)
-            env_info = env.step(vector_action={brain_name: [action1, action2]})
+            env_info = env.step(vector_action = {brain_name1: [action1], brain_name2: [action2]})
 
             # Get Information from Agent1
-            next_state1 = np.uint8(255 * np.array(env_info[brain_name].visual_observations[0]))
-            reward1 = env_info[brain_name].rewards[0]
+            next_state1 = 255 * np.array(env_info[brain_name1].visual_observations)
+            reward1 = env_info[brain_name1].rewards[0]
             episode_rewards1 += reward1
-            done1 = env_info[brain_name].local_done[0]
+            done1 = env_info[brain_name1].local_done[0]
 
             # Get Information from Agent2
-            next_state2 = np.uint8(255 * np.array(env_info[brain_name].visual_observations[0]))
-            reward2 = env_info[brain_name].rewards[1]
+            next_state2 = 255 * np.array(env_info[brain_name2].visual_observations)
+            reward2 = env_info[brain_name2].rewards[0]
             episode_rewards2 += reward1
-            done2 = env_info[brain_name].local_done[1]
+            done2 = env_info[brain_name2].local_done[0]
 
             done = done1 or done2
 
