@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 144
+  controlID: 68
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 55
+  controlID: 113
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 56
+  controlID: 114
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,20 +338,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ML-Agents/Examples/Pong/Brains
+    - Assets/ML-Agents/Examples/Pong/Scripts
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/ML-Agents/Examples/Pong/Brains
+  - Assets/ML-Agents/Examples/Pong/Scripts
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: C:\Users\hoeun\Documents\UnityDeepLearningStudy\Pong
+  m_LastProjectPath: C:\Users\dmslab\Documents\UnityDeepLearningStudy\Pong
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: 88360000
-    m_LastClickedID: 13960
-    m_ExpandedIDs: 0000000066360000683600006a3600006c36000000ca9a3b
+    scrollPos: {x: 0, y: 179}
+    m_SelectedIDs: 9c5a0000
+    m_LastClickedID: 23196
+    m_ExpandedIDs: 000000007a5a00007c5a00007e5a0000805a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066360000683600006a3600006c360000
+    m_ExpandedIDs: 000000007a5a00007c5a00007e5a0000805a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c6350000
-      m_LastClickedID: 13766
-      m_ExpandedIDs: 68fbffffb2350000d4350000
+      m_SelectedIDs: 4c360000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 8ec6ffff9ec6ffff20c8ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.911581, y: 1.9966679, z: 0.53356814}
+    m_Target: {x: 3.5451536, y: 7.577602, z: -0.45485547}
     speed: 2
-    m_Value: {x: 1.911581, y: 1.9966679, z: 0.53356814}
+    m_Value: {x: 3.5451536, y: 7.577602, z: -0.45485547}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -612,9 +612,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.28489166, y: 0.6584004, z: -0.29783008, w: -0.6297996}
+    m_Target: {x: -0.39458272, y: 0.58716106, z: -0.3955323, w: -0.58575666}
     speed: 2
-    m_Value: {x: -0.28489166, y: 0.6584004, z: -0.29783008, w: -0.6297996}
+    m_Value: {x: -0.39398694, y: 0.588036, z: -0.3961217, w: -0.5848723}
   m_Size:
     m_Target: 2.9181685
     speed: 2

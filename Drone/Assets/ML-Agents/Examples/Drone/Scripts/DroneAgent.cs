@@ -73,6 +73,13 @@ namespace PA_DronePack
         {
 
         }
-    }
+        void OnTriggerEnter(Collider col) {
+            SetReward(-0.5f);
+        }
 
+        void OnTriggerStay(Collider col) {
+            SetReward(-0.05f);
+        }
+    }
 }
+
