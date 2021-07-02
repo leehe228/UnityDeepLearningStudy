@@ -73,13 +73,20 @@ namespace PA_DronePack
         {
 
         }
+        
         void OnTriggerEnter(Collider col) {
-            SetReward(-1);
-            Done();
+            //SetReward(-1);
+            //Done();
         }
 
         void OnTriggerStay(Collider col) {
-            SetReward(-0.05f);
+            //SetReward(-0.05f);
+        }
+
+        void OnCollisionEnter(Collision other) {
+            /*if (other.gameObject.CompareTag("box1")) {
+                other.gameObject.SetActive(false);
+            }*/
         }
     }
 }

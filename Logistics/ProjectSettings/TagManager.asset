@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - box1
+  - box2
+  - box3
+  - hub
+  - destination
+  - agent
   layers:
   - Default
   - TransparentFX
