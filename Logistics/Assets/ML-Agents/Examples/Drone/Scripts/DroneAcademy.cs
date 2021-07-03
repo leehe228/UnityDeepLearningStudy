@@ -5,24 +5,23 @@ using MLAgents;
 
 public class DroneAcademy : Academy {
 
-    public GameObject hub;
-    public GameObject box1, box2, box3;
-    public GameObject destination;
+    public GameObject agent1, agent2, agent3;
+    public GameObject map;
 
     public override void AcademyReset()
     {
-        box1 = GameObject.FindWithTag("box1");
-        box2 = GameObject.FindWithTag("box2");
-        box3 = GameObject.FindWithTag("box3");
-        hub = GameObject.FindWithTag("hub");
-        destination = GameObject.FindWithTag("destination");
+        agent1.transform.position = new Vector3(0f, 5f, 0f);
+        agent2.transform.position = new Vector3(0f, 6f, 0f);
+        agent3.transform.position = new Vector3(0f, 7f, 0f);
 
+        map.GetComponent<MapController>().generate1();
+        map.GetComponent<MapController>().generate2();
+        // map.GetComponent<MapController>().generate3();
     }
 
     public override void AcademyStep()
     {
-
-
+        
     }
 
 }

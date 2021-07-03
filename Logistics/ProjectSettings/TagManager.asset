@@ -10,6 +10,10 @@ TagManager:
   - hub
   - destination
   - agent
+  - dest1
+  - dest2
+  - dest3
+  - map
   layers:
   - Default
   - TransparentFX

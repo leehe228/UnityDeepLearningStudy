@@ -1,12 +1,18 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Box
+    - Drone
     - DroneAcademy
     - GridAgent
     - MLAgents.LearningBrain
+    - MapController
     - PA_DronePack.DroneAgent
     - PA_DronePack.PA_DroneController
     - PA_DronePack.PA_ObjectID
+    - box2
+    - destination
+    - destination2
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
@@ -54,18 +60,32 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12176}
+      Script: {instanceID: 11338}
     - Class: 114
-      Script: {instanceID: 12428}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 12590}
+      Script: {instanceID: 11766}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 11876}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 13822}
+      Script: {instanceID: 12556}
+    - Class: 114
+      Script: {instanceID: 12646}
+    - Class: 114
+      Script: {instanceID: 13018}
+    - Class: 114
+      Script: {instanceID: 16300}
+    - Class: 114
+      Script: {instanceID: 22112}
+    - Class: 114
+      Script: {instanceID: 39112}
+    - Class: 114
+      Script: {instanceID: 39120}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
       Script: {instanceID: 0}
     - Class: 124
       Script: {instanceID: 0}
@@ -250,7 +270,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 1b1be75d3c30d4710bf29cea95e24f8e
+      Hash: 515d2f40b01d9d0eca52574af0224c16
     assemblyName: Assembly-CSharp.dll
     namespaceName: PA_DronePack
     className: DroneAgent
@@ -574,7 +594,7 @@ ScriptsOnlyBuild:
     className: BasicAgent
   - hash:
       serializedVersion: 2
-      Hash: 9182123f27e53e94e65aba0268ee495c
+      Hash: b9353d868b0752ea8ed8f57d08f8eae5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DroneAcademy
@@ -628,6 +648,12 @@ ScriptsOnlyBuild:
     className: BouncerAcademy
   - hash:
       serializedVersion: 2
+      Hash: 3f940a84d08423334f914b1a24fabd1d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Box
+  - hash:
+      serializedVersion: 2
       Hash: 9182123f27e53e94e65aba0268ee495c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -644,6 +670,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: MLAgents
     className: Area
+  - hash:
+      serializedVersion: 2
+      Hash: 034ccde21162cb8865646a18a952c73c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapController
   - hash:
       serializedVersion: 2
       Hash: 9182123f27e53e94e65aba0268ee495c
@@ -1046,7 +1078,31 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: bdae7124cb93c49db0910f071db64e4c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Drone
+  - hash:
+      serializedVersion: 2
+      Hash: bc4b140e395cb17cbbd4daa2b4f5495e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: box2
+  - hash:
+      serializedVersion: 2
+      Hash: b9e6e04a4cd956ff8c4dffa7ffc6d64b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: destination
+  - hash:
+      serializedVersion: 2
+      Hash: b9e6e04a4cd956ff8c4dffa7ffc6d64b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: destination2
   platform: 19
   scenePathNames:
   - Assets/ML-Agents/Examples/Drone/Drone.unity
-  playerPath: C:/Users/dmslab/Documents/UnityDeepLearningStudy/Drone/Build/Drone.exe
+  playerPath: C:/Users/dmslab/Documents/UnityDeepLearningStudy/Logistics/Build/Drone.exe
