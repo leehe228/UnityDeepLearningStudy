@@ -6,21 +6,18 @@ using PA_DronePack;
 
 public class box2 : MonoBehaviour
 {
-    public GameObject s;
     public GameObject agent1, agent2;
     public string agent1Name, agent2Name;
     private bool isEnter1, isEnter2;
 
     public GameObject map;
 
-    // Start is called before the first frame update
     void Start()
     {
         isEnter1 = false;
         isEnter2 = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isEnter1 && isEnter2) {
@@ -32,27 +29,30 @@ public class box2 : MonoBehaviour
                 isEnter2 = false;
                 agent1.GetComponent<Drone>().catchNum -= 1;
                 agent2.GetComponent<Drone>().catchNum -= 1;
-                agent1.GetComponent<DroneAgent>().GiveReward(-0.3f);
-                agent2.GetComponent<DroneAgent>().GiveReward(-0.3f);
+                agent1.GetComponent<Drone>().boxType = 0;
+                agent2.GetComponent<Drone>().boxType = 0;
+                agent1.GetComponent<DroneAgent>().GiveReward(-0.8f);
+                agent2.GetComponent<DroneAgent>().GiveReward(-0.8f);
                 GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
                 GetComponent<Rigidbody>().angularVelocity = new Vector3(0f, 0f, 0f);
             }
             else {
                 Vector3 p = (agent1pos + agent2pos) / 2;
                 p.y = Mathf.Max(0.3f, p.y - 1.2f);
-                s.transform.position = p;
+                gameObject.transform.position = p;
                 agent1.GetComponent<Drone>().boxPos = p;
                 agent2.GetComponent<Drone>().boxPos = p;
                 //
             }
         }
-
+        
         if (isEnter1 && isEnter2 == false) {
             Vector3 agent1pos = agent1.transform.position;
-            if (Vector3.Distance(agent1pos, s.transform.position) > 2.5f) {
+            if (Vector3.Distance(agent1pos, gameObject.transform.position) > 2.5f) {
                 isEnter1 = false;
                 agent1.GetComponent<Drone>().catchNum -= 1;
-                agent1.GetComponent<DroneAgent>().GiveReward(-0.1f);
+                agent1.GetComponent<Drone>().boxType = 0;
+                agent1.GetComponent<DroneAgent>().GiveReward(-0.5f);
             } 
         }
 
@@ -68,9 +68,10 @@ public class box2 : MonoBehaviour
                 agent1 = GameObject.Find(agent1Name);
                 if (agent1.GetComponent<Drone>().catchNum == 0) {
                     isEnter1 = true;
-                    agent1.GetComponent<Drone>().boxPos = s.transform.position;
+                    agent1.GetComponent<Drone>().boxPos = gameObject.transform.position;
                     agent1.GetComponent<Drone>().catchNum += 1;
-                    agent1.GetComponent<DroneAgent>().GiveReward(0.2f);
+                    agent1.GetComponent<Drone>().boxType = 2;
+                    agent1.GetComponent<DroneAgent>().GiveReward(1.0f);
                 }
             }
         }
@@ -81,8 +82,9 @@ public class box2 : MonoBehaviour
                 if (agent2.GetComponent<Drone>().catchNum == 0) {
                     isEnter2 = true;
                     agent2.GetComponent<Drone>().catchNum += 1;
-                    agent1.GetComponent<DroneAgent>().GiveReward(0.1f);
-                    agent2.GetComponent<DroneAgent>().GiveReward(0.3f);
+                    agent2.GetComponent<Drone>().boxType = 2;
+                    agent1.GetComponent<DroneAgent>().GiveReward(1.0f);
+                    agent2.GetComponent<DroneAgent>().GiveReward(2.0f);
                 }
             }
         }
@@ -91,18 +93,20 @@ public class box2 : MonoBehaviour
             if (other.gameObject.CompareTag("dest2")) {
                 agent1.GetComponent<Drone>().catchNum -= 1;
                 agent2.GetComponent<Drone>().catchNum -= 1;
+                agent1.GetComponent<Drone>().boxType = 0;
+                agent2.GetComponent<Drone>().boxType = 0;
                 isEnter1 = false;
                 isEnter2 = false;
                 GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
                 GetComponent<Rigidbody>().angularVelocity = new Vector3(0f, 0f, 0f);
-                agent1.GetComponent<DroneAgent>().GiveReward(2f);
-                agent2.GetComponent<DroneAgent>().GiveReward(2f);
+                agent1.GetComponent<DroneAgent>().GiveReward(8.0f);
+                agent2.GetComponent<DroneAgent>().GiveReward(8.0f);
                 map.GetComponent<MapController>().generate2();
             }
 
             else if (other.gameObject.CompareTag("dest1")) {
-                agent1.GetComponent<DroneAgent>().GiveReward(-0.5f);
-                agent2.GetComponent<DroneAgent>().GiveReward(-0.5f);
+                agent1.GetComponent<DroneAgent>().GiveReward(-0.1f);
+                agent2.GetComponent<DroneAgent>().GiveReward(-0.1f);
             }
         }
     }

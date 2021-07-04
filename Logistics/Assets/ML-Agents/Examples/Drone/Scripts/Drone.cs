@@ -6,12 +6,11 @@ using PA_DronePack;
 
 public class Drone : MonoBehaviour
 {
-    public GameObject s;
     public int catchNum;
+    public int boxType;
     public Vector3 boxPos;
     public LineRenderer line;
 
-    // Start is called before the first frame update
     void Start()
     {
         catchNum = 0;
@@ -22,14 +21,13 @@ public class Drone : MonoBehaviour
         line.SetPosition(1, new Vector3(0f, -10f, 0f));
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (catchNum > 0) {
-            if (s.transform.position.y < 1f) {
-                s.transform.position = new Vector3(s.transform.position.x, 1f, s.transform.position.z);
+            if (gameObject.transform.position.y < 1f) {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1f, gameObject.transform.position.z);
             }
-            line.SetPosition(0, s.transform.position);
+            line.SetPosition(0, gameObject.transform.position);
             line.SetPosition(1, boxPos);
         } 
         else {
@@ -40,7 +38,12 @@ public class Drone : MonoBehaviour
 
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("agent")) {
-            gameObject.GetComponent<DroneAgent>().GiveReward(-0.1f);
-        }    
+            // collide with another agent
+            gameObject.GetComponent<DroneAgent>().GiveReward(-0.2f);
+        }
+        else if (other.gameObject.CompareTag("map")) {
+            // collide with wall
+            gameObject.GetComponent<DroneAgent>().GiveReward(-0.2f);
+        }
     }
 }

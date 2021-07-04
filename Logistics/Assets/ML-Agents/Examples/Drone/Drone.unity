@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 142142820}
   m_Layer: 0
   m_Name: r_wall
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,8 +351,6 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   goal: {fileID: 465803838}
-  isCatch: 0
-  boxType: -1
   map: {fileID: 1037967811}
 --- !u!114 &240132680
 MonoBehaviour:
@@ -366,8 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995bbde810f01d64cabe7da19cb004ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 240132678}
   catchNum: 0
+  boxType: 0
   boxPos: {x: 0, y: 0, z: 0}
   line: {fileID: 0}
 --- !u!120 &240132681
@@ -580,8 +578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995bbde810f01d64cabe7da19cb004ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 338502833}
   catchNum: 0
+  boxType: 0
   boxPos: {x: 0, y: 0, z: 0}
   line: {fileID: 0}
 --- !u!114 &338502835
@@ -605,8 +603,6 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   goal: {fileID: 465803838}
-  isCatch: 0
-  boxType: -1
   map: {fileID: 1037967811}
 --- !u!120 &338502840
 LineRenderer:
@@ -831,7 +827,7 @@ GameObject:
   - component: {fileID: 451902515}
   m_Layer: 0
   m_Name: down_left_trans
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,7 +1124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7724490648f4341abb8f061a6c3d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 643763783}
   agent: {fileID: 0}
   agentName: 
   map: {fileID: 1037967811}
@@ -1220,7 +1215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702394454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.05, y: -4.91, z: 3.65}
+  m_LocalPosition: {x: -1.77, y: -4.91, z: -0.39}
   m_LocalScale: {x: 0.8, y: 1, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1238,7 +1233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50ea2d3a9520614e8cfa58ef9b7cbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 702394454}
 --- !u!1 &710234739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165740686982719177, guid: 9938a292ff15a9743ba9187c38b8366f,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165740686982719177, guid: 9938a292ff15a9743ba9187c38b8366f,
+        type: 3}
       propertyPath: m_TagString
       value: agent
       objectReference: {fileID: 0}
@@ -1684,7 +1683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144460312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.22000027, y: -4.91, z: 4.11}
+  m_LocalPosition: {x: 0.059999704, y: -4.91, z: 0.07000017}
   m_LocalScale: {x: 0.8, y: 1, z: 1.6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1702,7 +1701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62fb48465e35d804386a063a7e197f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 1144460312}
 --- !u!1 &1152425625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1165740686982719177, guid: 9938a292ff15a9743ba9187c38b8366f,
@@ -1730,8 +1728,6 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   goal: {fileID: 465803838}
-  isCatch: 0
-  boxType: -1
   map: {fileID: 1037967811}
 --- !u!114 &1152425631
 MonoBehaviour:
@@ -1745,8 +1741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995bbde810f01d64cabe7da19cb004ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 1152425625}
   catchNum: 0
+  boxType: 0
   boxPos: {x: 0, y: 0, z: 0}
   line: {fileID: 0}
 --- !u!120 &1152425632
@@ -1955,7 +1951,7 @@ GameObject:
   - component: {fileID: 1227983655}
   m_Layer: 0
   m_Name: up_left_trans
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2175,7 +2171,7 @@ GameObject:
   - component: {fileID: 1358867507}
   m_Layer: 0
   m_Name: up_right_trans
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2285,7 +2281,7 @@ GameObject:
   - component: {fileID: 1433213413}
   m_Layer: 0
   m_Name: top
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2395,7 +2391,7 @@ GameObject:
   - component: {fileID: 1439000016}
   m_Layer: 0
   m_Name: down_right_trans
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2624,15 +2620,15 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 11400000, guid: 3e6bc72b647f580499e84e549d3611d9, type: 2}
-    - {fileID: 11400000, guid: edb33a4fa85632c46bf8098d29fb00ec, type: 2}
     - {fileID: 11400000, guid: b3fcb605889c51541b08a1d4b52f9f28, type: 2}
-  maxSteps: 300
+    - {fileID: 11400000, guid: edb33a4fa85632c46bf8098d29fb00ec, type: 2}
+  maxSteps: 2000
   trainingConfiguration:
-    width: 80
-    height: 80
-    qualityLevel: 1
-    timeScale: 100
-    targetFrameRate: -1
+    width: 480
+    height: 270
+    qualityLevel: 5
+    timeScale: 1
+    targetFrameRate: 30
   inferenceConfiguration:
     width: 1280
     height: 720
@@ -2674,7 +2670,7 @@ GameObject:
   - component: {fileID: 1643164020}
   m_Layer: 0
   m_Name: l_wall
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2985,7 +2981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be8971e2e4748f448e615a0c8ec7702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: {fileID: 1700312292}
   agent1: {fileID: 0}
   agent2: {fileID: 0}
   agent1Name: 

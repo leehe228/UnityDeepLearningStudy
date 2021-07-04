@@ -23,5 +23,4 @@ public class DroneAcademy : Academy {
     {
         
     }
-
 }

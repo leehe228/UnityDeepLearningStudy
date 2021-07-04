@@ -7,17 +7,12 @@ namespace PA_DronePack
 {
     public class DroneAgent : Agent
     {
-
         private PA_DroneController dcoScript;
         public GameObject goal;
         Vector3 droneInitPos;
         Quaternion droneInitRot;
         float preDist, curDist;
         
-
-        // obs
-        public float isCatch = 0f;
-        public float boxType = -1f;
         public GameObject map;
 
         public override void InitializeAgent()
@@ -25,28 +20,54 @@ namespace PA_DronePack
             dcoScript = gameObject.GetComponent<PA_DroneController>();
             droneInitPos = gameObject.transform.position;
             droneInitRot = gameObject.transform.rotation;
+
+            preDist = 0f;
         }
 
         public override void CollectObservations()
         {
-            AddVectorObs(isCatch);
-            AddVectorObs(boxType);
-            AddVectorObs(map.GetComponent<MapController>().dest1.transform.position);
+            int catchNum = gameObject.GetComponent<Drone>().catchNum;
+            int boxType = gameObject.GetComponent<Drone>().boxType;
+            AddVectorObs((float)catchNum); 
+            AddVectorObs((float)boxType); 
+
+            // destination position
+            AddVectorObs(map.GetComponent<MapController>().dest1.transform.position); 
             AddVectorObs(map.GetComponent<MapController>().dest2.transform.position);
+
+            // box position
             AddVectorObs(map.GetComponent<MapController>().box1.transform.position);
             AddVectorObs(map.GetComponent<MapController>().box2.transform.position);
+
+            Vector3 originPos = new Vector3(0f, 0f, 0f);
+            // hold nothing
+            if (catchNum == 0) {
+                AddVectorObs((gameObject.transform.position - originPos).magnitude);
+            }
+            // hold
+            else {
+                if (boxType == 1) {
+                    AddVectorObs((gameObject.transform.position - map.GetComponent<MapController>().box1.transform.position).magnitude);
+                }
+                else {
+                    AddVectorObs((gameObject.transform.position - map.GetComponent<MapController>().box2.transform.position).magnitude);
+                }
+            }
+
+            // this agent position
             AddVectorObs(gameObject.transform.position);
-            
+
+            // other agents position
             string thisName = gameObject.name;
             GameObject[] agents = GameObject.FindGameObjectsWithTag("agent");
 
             foreach (GameObject a in agents) {
-                Debug.Log(a.name);
                 if (a.name != thisName) {
                     AddVectorObs(a.transform.position);
                 }
             }
 
+            // this agent velocity and angularVelocity
             AddVectorObs(gameObject.GetComponent<Rigidbody>().velocity);
             AddVectorObs(gameObject.GetComponent<Rigidbody>().angularVelocity);
         }
@@ -70,18 +91,32 @@ namespace PA_DronePack
             {
                 SetReward(-1);
                 Done();
-            }
-            else*/
-            /*{
-                curDist = (goal.transform.position - gameObject.transform.position).magnitude;
-                var reward = (preDist - curDist);
-                SetReward(reward);
-                preDist = curDist;
             }*/
+            
+            int catchNum = gameObject.GetComponent<Drone>().catchNum;
+            int boxType = gameObject.GetComponent<Drone>().boxType;
+
+            // hold nothing
+            Vector3 originPos = new Vector3(0f, 0f, 0f);
+            if (catchNum == 0) {
+                curDist = (gameObject.transform.position - originPos).magnitude;
+            }
+            // hold
+            else {
+                if (gameObject.GetComponent<Drone>().boxType == 1) {
+                    curDist = (gameObject.transform.position - map.GetComponent<MapController>().box1.transform.position).magnitude;
+                }
+                else {
+                    curDist = (gameObject.transform.position - map.GetComponent<MapController>().box2.transform.position).magnitude;
+                }
+            }
+
+            float reward = (preDist - curDist) * 0.01f;
+            SetReward(reward);
+            preDist = curDist;
         }
 
         public void GiveReward(float r) {
-            Debug.Log("Reward Recieved.");
             SetReward(r);
         }
 
