@@ -24,7 +24,7 @@ mu = 0
 theta = 1e-3
 sigma = 2e-3
 
-start_train_episode = 100
+start_train_episode = 10
 run_episode = 50000
 test_episode = 1000
 
